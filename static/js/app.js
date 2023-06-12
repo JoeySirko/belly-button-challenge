@@ -14,7 +14,6 @@ function buildDropdown(data) {
       option.text(name);
     });
 }
-
 function displayMetadata(sample, data) {
     let metadata = data.metadata.filter(meta => meta.id.toString() === sample)[0];
     
@@ -23,7 +22,7 @@ function displayMetadata(sample, data) {
     demographicInfo.html("");
     
     Object.entries(metadata).forEach(([key, value]) => {
-      demographicInfo.append("p").text(`${key}: ${value}`).style("color", "green");
+      demographicInfo.append("p").text(`${key}: ${value}`);
     });
 }
 
