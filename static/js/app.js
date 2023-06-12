@@ -1,10 +1,7 @@
-// Use the D3 library to read in samples.json from the URL
-
 d3.json("https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json").then(function(data) {
   console.log(data);
 });
 
-// Create a dropdown menu
 function buildDropdown(data) {
     let dropdownMenu = d3.select("#selDataset");
     let sampleNames = data.names;
@@ -26,7 +23,6 @@ function displayMetadata(sample, data) {
     });
 }
 
-
 // Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 // Use sample_values as the values for the bar chart.
 // Use otu_ids as the labels for the bar chart.
@@ -46,7 +42,7 @@ function displayBarChart(sample, data) {
       type: "bar",
       orientation: "h",
       marker: {
-        color: 'green' // This will color the bars green
+        color: 'green'
       }
     };
     
@@ -96,7 +92,6 @@ function displayBubbleChart(sample, data) {
     Plotly.newPlot("bubble", [trace], layout);
 }
 
-// Update all the plots when a new sample is selected.
 function optionChanged(sample) {
     d3.json("https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json").then(function(data) {
       displayMetadata(sample, data);
@@ -114,5 +109,4 @@ function init() {
     });
 }
 
-// Initiate the dashboard
 init();
